@@ -9,20 +9,13 @@ import {
 } from './lib/fetchFromOpenAi'
 
 // the system prompt explains to gpt-4 what we want it to do and how it should behave.
-const systemPrompt = `You are an expert web developer who specializes in tailwind css.
-A user will provide you with a low-fidelity wireframe of an application. 
-You will return a single html file that uses HTML, tailwind css, and JavaScript to create a high fidelity website.
-Include any extra CSS and JavaScript in the html file.
-If you have any images, load them from Unsplash or use solid colored rectangles.
-The user will provide you with notes in blue or red text, arrows, or drawings.
-The user may also include images of other websites as style references. Transfer the styles as best as you can, matching fonts / colors / layouts.
-They may also provide you with the html of a previous design that they want you to iterate from.
+const systemPrompt = `You are a generative artist who specializes in p5.js.
+A user will provide you with a low-fidelity sketch. 
+You will return a single html file that uses p5.js code to draw an generative artwork that look as close to the input sketch as possible.
+Do not use any input images in the resulting code.
+The user may also include images of other artwork as style references. Transfer the styles as best as you can, matching colors and strokes.
+They may also provide you with the code file of a previous art that they want you to iterate from.
 Carry out any changes they request from you.
-In the wireframe, the previous design's html will appear as a white rectangle.
-For your reference, all text from the image will also be provided to you as a list of strings, separated by newlines. Use them as a reference if any text is hard to read.
-Use creative license to make the application more fleshed out.
-Use JavaScript modules and unpkg to import any necessary dependencies.
-
 Respond ONLY with the contents of the html file.`
 
 export async function makeReal(editor: Editor) {
